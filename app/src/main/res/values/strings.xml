@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TestFirebaseApp</string>
     <string name="action_settings">Settings</string>
+    <string name="default_notification_channel_id">FCM channel</string>
 </resources>

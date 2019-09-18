@@ -1,12 +1,17 @@
 package ochrostowska.pl.testfirebaseapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.crashlytics.android.Crashlytics
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,9 +20,35 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener {
+        trigger_crash.setOnClickListener {
             Crashlytics.getInstance().crash() // Force a crash
         }
+
+        retrieve_fcm_token.setOnClickListener {
+            retrieveToken()
+        }
+
+        trigger_crash.setOnClickListener {
+            Crashlytics.getInstance().crash() // Force a crash
+        }
+    }
+
+    private fun retrieveToken() {
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w(TAG, "getInstanceId failed", task.exception)
+                    return@OnCompleteListener
+                }
+
+                // Get new Instance ID token
+                val token = task.result?.token
+
+                // Log and toast
+                val msg = "Token is $token"
+                Log.d(TAG, msg)
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -34,5 +65,9 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    companion object {
+        val TAG = MainActivity::class.java.simpleName
     }
 }
