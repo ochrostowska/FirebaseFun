@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "883890364051",
+    "firebase_url": "https://testfirebaseapp-29b07.firebaseio.com",
+    "project_id": "testfirebaseapp-29b07",
+    "storage_bucket": "testfirebaseapp-29b07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883890364051:android:2160c0c5da80fecaa1f766",
+        "android_client_info": {
+          "package_name": "ochrostowska.pl.testfirebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883890364051-cret499jg028cmc2qtlrn2qtpg8of8rm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLLbYY3MAcIGCm366vSNlZgx5pMUFdfuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883890364051-cret499jg028cmc2qtlrn2qtpg8of8rm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
